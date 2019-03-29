@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::post('search-redis/product', 'ProductsController@searchRedis')->name('redis');
+Route::post('search-mysql/product', 'ProductsController@searchMysql')->name('mysql');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
