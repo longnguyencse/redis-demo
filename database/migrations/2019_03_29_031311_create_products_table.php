@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('store_id');
+            $table->unsignedBigInteger('store_id');
             $table->text('name');
             $table->float('weight')->comment('miligam');
             $table->float('price')->comment('VND');
@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->timestamps();
 
             // khoa ngoai
-            $table->foreign('store_id')->on('store');
+            $table->foreign('store_id')->references('id')->on('stores');
         });
     }
 
