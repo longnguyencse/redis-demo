@@ -13,9 +13,19 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('search-redis/product', 'ProductsController@searchRedis')->name('redis');
-Route::post('search-mysql/product', 'ProductsController@searchMysql')->name('mysql');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::post('search-redis/product', 'ProductsController@searchRedis')->name('redis');
+Route::post('search-mysql/product', 'ProductsController@searchMysql')->name('mysql');
+Route::post('search/indexRedis', 'ProductsController@indexRedis')->name('indexRedis');
+
+//<host>/api/articles
+Route::post('articles', function() {
+    // If the Content-Type and Accept headers are set to 'application/json',
+    // this will return a JSON structure. This will be cleaned up later.
+    error_log("function");
 });
